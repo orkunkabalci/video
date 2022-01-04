@@ -1,0 +1,15 @@
+
+<ion-content>
+  <ion-spinner
+  *ngIf="loading"
+  class="spinner-center-page"
+  name="crescent"
+></ion-spinner>
+<span *ngIf="loading==false">
+
+<h4>My List</h4>
+  <img *ngFor="let item of series" [src]="item?.thumbnail" [routerLink]="[ 'series-detail/', item._id ]">
+</span>
+</ion-content>
+
+

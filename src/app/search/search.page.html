@@ -1,0 +1,16 @@
+<ion-content>
+  <ion-spinner
+  *ngIf="loading"
+  class="spinner-center-page"
+  name="crescent"
+></ion-spinner>
+<span *ngIf="loading==false">
+
+  <ion-searchbar [debounce]="800" (ionChange)="search($event.target['value'])" [(ngModel)]="searchTerm"></ion-searchbar>
+
+  <div *ngIf="series?.length>0"   >
+    <p>Series</p>
+    <img *ngFor="let item of series" [src]="item?.thumbnail" [routerLink]="[ 'series-detail/', item._id ]">
+  </div>
+  </span>
+</ion-content>

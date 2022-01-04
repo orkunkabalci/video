@@ -1,0 +1,104 @@
+:host {
+  ion-content {
+    --background: black;
+  }
+  .asd {
+    position: absolute;
+    width: 375px;
+    .header {
+      z-index: 1;
+      display: flex;
+      position: relative;
+      img {
+        width: 100px;
+        height: 50px;
+        margin-top: 10px;
+      }
+      p {
+        font-size: 18px;
+        margin-left: 35px;
+        margin-right: 15px;
+        margin-top: 30px;
+        color: black
+        ;
+      }
+    }
+    .showcase {
+      top: 0;
+      position: absolute;
+
+      img {
+        width: 375px;
+        height: 500px;
+        object-fit: cover;
+      }
+      .tags {
+        z-index: 3;
+        position: relative;
+        display: flex;
+        bottom: 120px;
+        margin: auto;
+        width: 80%;
+        p {
+          font-size: smaller;
+          color: wheat;
+          margin: auto;
+        }
+      }
+      .actions {
+        z-index: 3;
+        display: flex;
+        margin: auto;
+        width: 80%;
+        position: relative;
+        bottom: 100px;
+        .play {
+          display: flex;
+          background-color: white;
+          padding: 8px;
+          border-radius: 5px;
+          p {
+            color: black;
+            margin-top: 5px;
+            font-size: 18px;
+            font-weight: 550;
+          }
+          ion-icon {
+            margin-top: 1px;
+            color: black;
+            font-size: 25px;
+          }
+        }
+        ion-label {
+          margin: auto;
+          .ml {
+            margin-left: -7px;
+          }
+
+          ion-icon {
+            font-size: 30px;
+            color: white;
+          }
+          p {
+            font-size: smaller;
+            color: white;
+            margin-left: 4px;
+          }
+        }
+      }
+      .shadow{
+        opacity: 1;
+        z-index: 2;
+        position: relative;
+        bottom:250px;
+        width: 375px;
+        height: 200px;
+        background-image: linear-gradient(  rgba(0, 0, 0, 0), black);
+      }
+    }
+  }
+
+  .firstslide {
+    margin-top: 520px;
+  }
+}

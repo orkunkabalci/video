@@ -1,0 +1,8 @@
+<div class="slidediv">
+  <p> {{title}} </p>
+    <ion-slides  [options]="slideOpts">
+      <ion-slide *ngFor="let item of data" >
+        <img [src]="item.thumbnail" [routerLink]="[ 'series-detail/', item?._id ]">
+      </ion-slide>
+    </ion-slides>
+</div>

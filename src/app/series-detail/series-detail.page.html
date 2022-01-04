@@ -1,0 +1,72 @@
+<ion-content>
+  <ion-spinner
+  *ngIf="loading"
+  class="spinner-center-page"
+  name="crescent"
+></ion-spinner>
+<span *ngIf="loading==false">
+
+  <img class="background" [src]="series?.thumbnail">
+
+  <div class="headerdiv">
+    <ion-back-button defaultHref="tabs"></ion-back-button>
+    <img class="mini" [src]="series?.thumbnail">
+    <ion-label class="info">
+      <p> {{series?.release_date|date:'shortDate'}} <span *ngFor="let item of series?.maturity"> {{item.name}} </span>
+        {{series?.total_season}} Seasons </p>
+    </ion-label>
+
+    <ion-button [routerLink]="[ '/video/', videos[0]?._id ]"  >
+      <ion-icon name="play-sharp"></ion-icon> <span>Play</span>
+    </ion-button>
+    <div class="infodiv">
+      <h2>{{series?.title|titlecase}}</h2>
+      <p> {{series?.description}} </p>
+      <p> Starring: <span *ngFor="let item of series?.cast"> {{item.name|titlecase}} </span> </p>
+      <p> Director: <span *ngFor="let item of series?.director"> {{item.name|titlecase}} </span> </p>
+    </div>
+    <div class="actions">
+      <ion-label (click)="listfunc()">
+        <span *ngIf="listed==false">
+          <ion-icon name="add-outline"></ion-icon>
+        </span>
+        <span *ngIf="listed==true">
+          <ion-icon name="checkmark-done-outline"></ion-icon>
+        </span>
+        <p class="ml">My List</p>
+      </ion-label>
+      <ion-label [class.active]="likestatus==true" (click)="likefunc('like')">
+        <ion-icon name="thumbs-up-sharp"></ion-icon>
+        <p> Like</p>
+      </ion-label>
+      <ion-label [class.active]="likestatus==false"  (click)="likefunc('dislike')">
+        <ion-icon name="thumbs-down-sharp"></ion-icon>
+        <p> Dislike</p>
+      </ion-label>
+
+    </div>
+  </div>
+
+
+
+  <div class="episodes">
+    <ion-item class="selected">
+      <ion-select (ionChange)="getvideos()" [value]="activeseason" [(ngModel)]="activeseason" okText="Okay">
+        <ion-select-option *ngFor="let item of [].constructor(seasonsnumber); let i = index    " [value]="i+1"> Season
+          {{i+1}} </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-list class="episodelist">
+      <div class="episode" *ngFor="let video of videos">
+        <div>
+          <img class="episodeposter" [routerLink]="[ '/video/', video?._id ]" [src]="video?.poster">
+          <p class="episodeinfo"> {{video?.episode}}. {{video.title|titlecase}} <br> <span> {{ video.duration}}
+              min</span> </p>
+        </div>
+        <p class="episodedesc"> {{video?.description}} </p>
+      </div>
+    </ion-list>
+  </div>
+  </span>
+</ion-content>

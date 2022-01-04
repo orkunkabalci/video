@@ -1,1 +1,8 @@
-
+:host{
+    ion-tab-bar{
+        --background:#0d0d0d;
+        ion-tab-button{
+            --color-selected:white
+        }
+    }
+}

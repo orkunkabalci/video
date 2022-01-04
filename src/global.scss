@@ -24,3 +24,26 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+.my-custom-class{
+    --background:black;
+    --border-color:white;
+    --border-radius:1px;
+    --border-style:solid;
+    --border-width:1px;
+    --color:#fff;
+}
+ion-spinner {
+    &.spinner-center-page {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      z-index: 100;
+      transform: scale(3);
+
+      animation-duration: 0s !important;
+      
+    }
+  }
+

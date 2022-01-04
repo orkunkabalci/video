@@ -1,0 +1,39 @@
+<ion-content>
+  <ion-spinner *ngIf="loading" class="spinner-center-page" name="crescent"></ion-spinner>
+  <div *ngIf="loading==false">
+
+
+
+  <div class="header">
+    <img [src]="user?.image">
+    <div class="info">
+
+      <h3>
+        @{{user?.username|titlecase}}
+      </h3>
+      <p class="name">
+        {{user?.name + ' '+ user?.surname|titlecase}}
+      </p>
+    </div>
+
+
+  </div>
+  <div class="counts">
+    <div class="likes">
+      <p> Liked Series:{{user?.likes.length}}</p>
+      <p> Disliked Series:{{user?.dislikes.length}}</p>
+
+
+    </div>
+    <p class="ml"> My List:{{user?.watch_list.length}}</p>
+  </div>
+
+  <app-slide [data]="user?.likes" title="Liked">
+
+  </app-slide>
+  <app-slide [data]="user?.dislikes" title="DisLiked">
+
+  </app-slide>
+</div>
+
+</ion-content>

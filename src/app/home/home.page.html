@@ -1,0 +1,57 @@
+<ion-content>
+  <ion-spinner
+  *ngIf="loading"
+  class="spinner-center-page"
+  name="crescent"
+></ion-spinner>
+  <span *ngIf="loading==false">
+
+
+  <div class="asd">
+    <div class="header">
+      <img [src]="config?.logo">
+    </div>
+    <div class="showcase">
+      <img [routerLink]="[ 'series-detail/', config?.showcase._id ]" [src]="config?.showcase.thumbnail">
+      <div class="tags">
+        <p *ngFor="let tag of config?.showcase.tags"> {{tag.tag|titlecase}} </p>
+      </div>
+      <div class="actions">
+        <ion-label (click)="listfunc()">
+          <span *ngIf="listed==false">
+            <ion-icon name="add-outline"></ion-icon>
+          </span>
+          <span *ngIf="listed==true">
+            <ion-icon name="checkmark-done-outline"></ion-icon>
+          </span>
+          <p class="ml">My List</p>
+        </ion-label>
+        <ion-label [routerLink]="[ '/video/', video?._id ]" class="play">
+          <ion-icon name="play-sharp"> </ion-icon>
+          <p>Play</p>
+        </ion-label>
+        <ion-label [routerLink]="[ '../series-detail/', config?.showcase._id ]">
+          <ion-icon name="information-circle-outline"></ion-icon>
+          <p>info</p>
+        </ion-label>
+      </div>
+      <div class="shadow">
+      </div>
+    </div>
+  </div>
+  <div class="firstslide">
+    <app-slide [data]="series" title="Popular">
+
+    </app-slide>
+  </div>
+
+  <app-slide [data]="series" title="Continue Watching">
+
+  </app-slide>
+  <app-slide [data]="series" title="New This Week ">
+
+  </app-slide>
+
+
+</span>
+</ion-content>
